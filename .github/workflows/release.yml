@@ -21,6 +21,10 @@ jobs:
           cp -r ../test-data .
           meson . ../build-gcc
           cd ../build-gcc
+          git config --global user.email "CI@CI.com"
+          git config --global user.name "Mr Robot"
+          git add -A
+          git commit -m "dummy commit to make meson add in the symlinked directory"
           meson dist
       - name: Release
         uses: softprops/action-gh-release@v1
